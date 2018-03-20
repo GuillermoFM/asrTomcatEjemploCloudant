@@ -8,4 +8,4 @@ applications:
   host: asrTomcatEjemploCloudantGFM
   domain: eu-gb.mybluemix.net
   services:
-  - Cloudant NoSQL DB-ke
+  - Cloudant NoSQL DB-
