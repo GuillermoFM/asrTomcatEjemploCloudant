@@ -1,12 +1,11 @@
 ---
 applications:
 - name: asrTomcatEjemploCloudant
-  random-route: true
   path: target/asrTomcatEjemploCloudant.war
   memory: 256M
   instances: 1
   buildpack: java_buildpack
-  host: asrTomcatEjemploCloudant
+  host: asrTomcatEjemploCloudantGFM
   domain: eu-gb.mybluemix.net
   services:
   - Cloudant NoSQL DB-ke
