@@ -4,11 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Proyecto ASRkñllklñ</title>
-<script>document.getElementById("linkDinamico").href.replace("TOKEN", "palabra");</script>
+<title>Proyecto TRADUCTOR</title>
+<script>document.getElementById("linkDinamico").onclick = function () { 
+	document.getElementById("linkDinamico").href.replace("TOKEN", document.getElementByID("palabra").value);
+	}
+</script>
 </head>
 <body>
-<h1>Ejemplo de Proyecto de GuillermoDevOps</h1>
+<h1>Ejemplo de Proyecto de GuillermoDevOps- Traductor</h1>
 
 <p>Introduce una palabra a traducir</p>
 <input id="palabra" ></input>
