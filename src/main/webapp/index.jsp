@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Proyecto TRADUCTOR</title>
 <script type="text/javascript">function traduccion () { 
-	document.getElementById("linkDinamico").href.replace("TOKEN", document.getElementById("palabra").value);
+	document.getElementById("linkDinamico").setAttribute('href', 'insertar?palabra='+ document.getElementById("palabra").value);
 	return true;
 	}
 </script>
