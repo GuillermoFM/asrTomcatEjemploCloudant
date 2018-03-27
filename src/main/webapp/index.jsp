@@ -5,9 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Proyecto TRADUCTOR</title>
-<script>document.getElementById("linkDinamico").onclick = function () { 
-	document.getElementById("linkDinamico").href.replace("TOKEN", document.getElementById("palabra").value);
-	}
+<script>document.getElementById("linkDinamico").onclick = function () { document.getElementById("linkDinamico").href.replace("TOKEN", document.getElementById("palabra").value);}
 </script>
 </head>
 <body>
