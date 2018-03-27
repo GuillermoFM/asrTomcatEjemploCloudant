@@ -42,7 +42,7 @@ public class Controller extends HttpServlet {
 				if(store.getDB() == null)
 					  out.println("No hay DB");
 				else
-					out.println("Palabras en la BD Cloudant:<br />" + store.getAll());
+					out.println("Palabras traducidas en la BD Cloudant:<br />" + store.getAll());
 				break;
 				
 			case "/insertar":
@@ -64,7 +64,7 @@ public class Controller extends HttpServlet {
 					{
 						palabra.setName(parametroTraducido);
 						store.persist(palabra);
-					    out.println(String.format("Traducida la palabra %s a %s", parametro,palabra.getName()));			    	  
+					    out.println(String.format("Traducida la palabra %s. Resultado de la traducción guardado en BD: %s", parametro,palabra.getName()));			    	  
 					}
 				}
 				break;

@@ -13,7 +13,7 @@ public class Traductor
 		LanguageTranslator service = new LanguageTranslator(); service.setUsernameAndPassword("7903f49f-81fd-4979-9842-a3afb252bcbc", "Y7QGmuyeVMnV");
 		TranslateOptions translateOptions = new TranslateOptions.Builder()
 	              .addText(palabra)
-	              .modelId("en-es")
+	              .modelId("es-en")
 	              .build();
 		
 		TranslationResult translationResult = service.translate(translateOptions).execute();

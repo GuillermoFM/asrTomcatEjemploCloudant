@@ -12,7 +12,7 @@
 </script>
 </head>
 <body>
-<h1>Ejemplo de Proyecto de GuillermoDevOps- Traductor</h1>
+<h1>Traductor ESPAÑOL-INGLÉS de GuillermoFDZ</h1>
 
 <p>Introduce una palabra a traducir</p>
 <input id="palabra" ></input>
