@@ -5,7 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Proyecto TRADUCTOR</title>
-<script>document.getElementById("linkDinamico").onclick = function () { document.getElementById("linkDinamico").href.replace("TOKEN", document.getElementById("palabra").value);}
+<script>function () { 
+	document.getElementById("linkDinamico").href.replace("TOKEN", document.getElementById("palabra").value);
+	return true;
+	}
 </script>
 </head>
 <body>
@@ -16,7 +19,7 @@
 <p>Opciones :</p>
 <ul>
 <li><a href="listar">Listar base de datos</a></li>
-<li><a id="linkDinamico" href="insertar?palabra=TOKEN">Traducir</a></li>
+<li><a id="linkDinamico" href="insertar?palabra=TOKEN" onclick="return function()">Traducir</a></li>
 </ul>
 </body>
 </html>
