@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>Ejemplo de Proyecto de GuillermoDevOps</h1>
-<p>Opciones:</p>
+<p>Opciones :</p>
 <ul>
 <li><a href="listarll">Listar</a></li>
 <li><a href="insertar?palabra=hola">Insertar</a></li>
