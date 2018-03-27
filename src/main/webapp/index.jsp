@@ -5,13 +5,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Proyecto ASRkñllklñ</title>
+<script>document.getElementById("linkDinamico").href.replace("TOKEN", "palabra");</script>
 </head>
 <body>
 <h1>Ejemplo de Proyecto de GuillermoDevOps</h1>
+
+<p>Introduce una palabra a traducir</p>
+<input id="palabra" ></input>
 <p>Opciones :</p>
 <ul>
-<li><a href="listarll">Listar</a></li>
-<li><a href="insertar?palabra=hola">Insertar</a></li>
+<li><a href="listar">Listar base de datos</a></li>
+<li><a id="linkDinamico" href="insertar?palabra=TOKEN">Traducir</a></li>
 </ul>
 </body>
 </html>
