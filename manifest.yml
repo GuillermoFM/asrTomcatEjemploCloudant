@@ -1,7 +1,7 @@
 ---
 applications:
-- name: PracticaFinalGFMAVA
-  path: target/PracticaFinalGFMAVA.war
+- name: asrTomcatEjemploCloudant
+  path: target/asrTomcatEjemploCloudant.war
   memory: 256M
   instances: 1
   buildpack: java_buildpack
@@ -9,5 +9,3 @@ applications:
   domain: eu-gb.mybluemix.net
   services:
   - asrGFMCloudantNoSQL
-  - Languaje Translator-GFM
-  - Texto a voz-GFM
