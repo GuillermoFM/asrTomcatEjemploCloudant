@@ -45,7 +45,7 @@ public class Speech extends HttpServlet {
     yourFile.createNewFile(); // if file already exists will do nothing 
       try {
           String text = request.getParameter("palabra");
-          InputStream stream = service.synthesize(text, Voice.EN_ALLISON,AudioFormat.WAV).execute();
+          InputStream stream = service.synthesize(text, Voice.FR_RENEE,AudioFormat.WAV).execute();
           InputStream in = WaveUtils.reWriteWaveHeader(stream);
           response.setContentType("audio/wav");
           response.setHeader("Content-Disposition", "attachment;filename=Translate.wav");
