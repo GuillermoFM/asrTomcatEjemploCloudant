@@ -44,7 +44,7 @@ public class Speech extends HttpServlet {
     File yourFile = new File(path);
     yourFile.createNewFile(); // if file already exists will do nothing 
       try {
-          String text = request.getParameter("palabrab");
+          String text = request.getParameter("palabra");
           InputStream stream = service.synthesize(text, Voice.EN_ALLISON,AudioFormat.WAV).execute();
           InputStream in = WaveUtils.reWriteWaveHeader(stream);
           response.setContentType("audio/wav");
