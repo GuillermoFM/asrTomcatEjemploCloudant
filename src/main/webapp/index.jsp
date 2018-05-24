@@ -10,7 +10,7 @@
 	return true;
 	}
 function habla () { 
-	document.getElementById("linkDinamico").setAttribute('href', 'reproducir?palabrab='+ document.getElementById("palabra").value);
+	document.getElementById("linkDinamico").setAttribute('href', 'reproducir?palabra='+ document.getElementById("palabra").value);
 	return true;
 	}
 </script>
@@ -24,7 +24,7 @@ function habla () {
 <ul>
 <li><a href="listar">Listar base de datos</a></li>
 <li><a id="linkDinamico" href="insertar?palabra=TOKEN" onclick="return traduccion();">Traducir</a></li>
-<li><a id="linkDinamico" href="traducir?palabra=TOKEN" onclick="return habla();">Hablar</a></li>
+<li><a id="linkDinamico" href="reproducir?palabra=TOKEN" onclick="return habla();">Hablar</a></li>
 </ul>
 </body>
 </html>
