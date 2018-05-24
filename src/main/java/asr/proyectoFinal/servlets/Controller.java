@@ -64,7 +64,7 @@ public class Controller extends HttpServlet {
 					{
 						palabra.setName(parametroTraducido);
 						store.persist(palabra);
-					    out.println(String.format("Traducida la palabra %s. Resultado de la traducción guardado en BD: %s", parametro,palabra.getName()));			    	  
+					    out.println(String.format("Traducida prueba la palabra %s. Resultado de la traducción guardado en BD: %s", parametro,palabra.getName()));			    	  
 					}
 				}
 				break;
