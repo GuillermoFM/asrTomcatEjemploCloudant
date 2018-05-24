@@ -6,11 +6,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Proyecto TRADUCTOR</title>
 <script type="text/javascript">function traduccion () { 
-	document.getElementById("linkDinamico").setAttribute('href', 'insertar?palabra='+ document.getElementById("palabra").value);
+	document.getElementById("linkDinamico1").setAttribute('href', 'insertar?palabra='+ document.getElementById("palabra").value);
 	return true;
 	}
 function habla () { 
-	document.getElementById("linkDinamico").setAttribute('href', 'reproducir?palabra='+ document.getElementById("palabra").value);
+	document.getElementById("linkDinamico2").setAttribute('href', 'reproducir?palabra='+ document.getElementById("palabra").value);
 	return true;
 	}
 </script>
@@ -23,8 +23,8 @@ function habla () {
 <p>Opciones :</p>
 <ul>
 <li><a href="listar">Listar base de datos</a></li>
-<li><a id="linkDinamico" href="insertar?palabra=TOKEN" onclick="return traduccion();">Traducir</a></li>
-<li><a id="linkDinamico" href="reproducir?palabra=TOKEN" onclick="return habla();">Hablar</a></li>
+<li><a id="linkDinamico1" href="insertar?palabra=TOKEN" onclick="return traduccion();">Traducir</a></li>
+<li><a id="linkDinamico2" href="reproducir?palabra=TOKEN" onclick="return habla();">Hablar</a></li>
 </ul>
 </body>
 </html>
