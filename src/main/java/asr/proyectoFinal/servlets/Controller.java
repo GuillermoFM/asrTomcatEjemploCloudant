@@ -68,7 +68,30 @@ public class Controller extends HttpServlet {
 					}
 				}
 				break;
-		}
+//			case "/traducir":
+//				//Palabra palabrab = new Palabra();
+//				String parametrob = request.getParameter("palabra");			
+//				String parametroTraducidob = Traductor.translate(parametrob);
+
+//				if(parametrob==null)
+//				{
+//					out.println("usage: /insertar?palabra=palabra_a_traducir");
+//				}
+//				else
+//				{
+//					if(store.getDB() == null) 
+//					{
+//						out.println(String.format("Palabra: %s", palabrab));
+//					}
+//					else
+//					{
+//						palabrab.setName(parametroTraducidob);
+//						store.persist(palabrab);
+//					    out.println(String.format("Traducida prueba la palabra %s. Resultado de la traducción guardado en BD: %s", parametrob,palabrab.getName()));			    	  
+//					}
+//				}
+//				break;
+	}
 		out.println("</html>");
 	}
 
