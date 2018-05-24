@@ -18,7 +18,7 @@ function habla () {
 <body>
 <h1>Práctica Final Alfonso-Guillermo</h1>
 
-<p>Introduce una palabra a traducir</p>
+<p>Introduce una palabra a traducir </p>
 <input id="palabra" ></input>
 <p>Opciones :</p>
 <ul>
