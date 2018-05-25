@@ -1,55 +1,54 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Proyecto TRADUCTOR</title>
-<script type="text/javascript">function traduccion () { 
-	document.getElementById("linkDinamico1").setAttribute('href', 'insertar?palabra='+ document.getElementById("palabra").value);
-	return true;
-	}
-function habla () { 
-	document.getElementById("linkDinamico2").setAttribute('href', 'reproducir?palabra='+ document.getElementById("palabra").value);
-	return true;
-	}
-function tono () { 
-	document.getElementById("linkDinamico3").setAttribute('href', 'tono?palabra='+ document.getElementById("palabra").value);
-	return true;
-	}
-</script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="estilos.css">
+	<link rel="icon" href="images/icono-1.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+	<title>
+		Guillarino's Dictionary
+	</title>
 </head>
+
+
+
 <body>
-<h1>Práctica Final Alfonso-Guillermonmnm,m </h1>
+<div id="cabecera">
+	<div class="col-sm-6 col-sm-offset-3" id="titulo" style="text-align:center; color:#FFF; font-size:30px; padding-top:20px;">
+			Guillarino's Dictionary
+	</div>
+</div>
 
-<p>Introduce una palabra a traducir </p>
-<input id="palabra" ></input>
-<p>Opciones :</p>
-<ul>
-<li><a href="listar">Listar base de datos</a></li>
-<li><a id="linkDinamico1" href="insertar?palabra=TOKEN" onclick="return traduccion();">Traducir</a></li>
-<li><a id="linkDinamico2" href="reproducir?palabra=TOKEN" onclick="return habla();">Hablar</a></li>
-<li><a id="linkDinamico3" href="tono?palabra=TOKEN" onclick="return tono();">Sentimiento</a></li>
+<div id="cuerpo">
 
-<form class="form-horizontal" action="toText" enctype="multipart/form-data" method="POST">
+	<form class="form-horizontal" action="toText" enctype="multipart/form-data" method="POST">
 	    <fieldset>
 	        <legend class="text-center h1">Procesamiento de audio</legend>
+	        <br>
 	        <div class="form-group" style="padding-top: 20px;">
-	            <span class="col-md-1 col-md-offset-2 text-center">Introduzca el audio a analizar</span>
-	            <div class="col-md-8">
+	            <span class="col-md-3 col-md-offset-3 text-center">Introduzca un audio .MP3 en español para traducirlo al inglés y realizar un análisis de sentimientos</span>
+	            <div class=" col-md-5">
 	                <input type="file" name="audio" placeholder="Audio" class="form-control">
 	            </div>
 	        </div>
-
 	        <div class="form-group">
 	            <div class="col-md-12 text-center">
+	            <br>
+	            <br>
 	                <button type="submit" class="btn btn-primary btn-lg">Procesar</button>
 	            </div>
 	        </div>
 	    </fieldset>
 	</form>
-</ul>
+	
+	<form class="col-md-offset-5 form-horizontal" action="listar" method="GET">
+		<button type="submit" class="btn btn-success btn-lg">Traducciones anteriores</button>
+	</form>
 
 
+</div>
+<footer id="footer">
+	<a href="https://es-es.facebook.com/ibmwatson" ><div class="col-md-offset-2 col-md-8"><img style="height:70%;width:8%;padding-top:20px;padding-left:12px" src="images/facebook.png"></a><a href="https://twitter.com/ibmwatson?lang=es"><img style="height:70%;width:8%;padding-top:20px;padding-left:12px" src="images/twitter.png"></a></div>
+</footer>
 </body>
 </html>

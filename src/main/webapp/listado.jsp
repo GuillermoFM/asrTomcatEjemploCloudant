@@ -25,22 +25,16 @@
 
 <div id="cuerpo">
 
-	        <legend class="text-center h1">Feedback</legend>
+	        <legend class="text-center h1">Listado</legend>
 	        <br>
 	        
 	            <br>
 	            <br>
-	            		<div class="col-md-12"><div class="col-md-offset-1 col-md-2 text-center">Transcripción al idioma original</div>
-	                <div class="col-md-9 text-center" style="border: 2px solid #EAECEE; border-radius:5px;">${requestScope.original}</div>
-	                </div>
+	            		<div class="col-md-12"><div class="col-md-offset-1 col-md-2 text-center">Audios guardados</div>
+	                <div class="col-md-9 text-center" style="border: 2px solid #EAECEE; border-radius:5px;">${requestScope.bdGuardado}</div>
+	                </div><br><br>
+	                <div class="col-md-2 col-md-offset-6" style="margin-top:10px;"><a href="index.jsp">Volver al Inicio</a></div>
 	                <br>
-	                <div class="col-md-12" style="margin-top:10px;"><div class="col-md-offset-1 col-md-2 text-center">Traducción al inglés</div>
-					<div class="col-md-9 text-center" style="border: 2px solid #EAECEE; border-radius:5px;">${requestScope.traducido}</div>
-					</div>
-					<br>
-					<div class="col-md-12" style="margin-top:10px;"><div class="col-md-offset-1 col-md-2 text-center">Ánalisis de sentimiento</div>
-					<div class="col-md-9 text-center" style="border: 2px solid #EAECEE; border-radius:5px;">${requestScope.tone}</div></div>
-					<div class="col-md-2 col-md-offset-6" style="margin-top:10px;"><a href="index.jsp">Volver al Inicio</a></div>
 </div>
 
 

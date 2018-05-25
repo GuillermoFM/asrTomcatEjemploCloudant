@@ -27,6 +27,12 @@ import com.ibm.watson.developer_cloud.speech_to_text.v1.SpeechToText;
 import com.ibm.watson.developer_cloud.speech_to_text.v1.model.RecognizeOptions;
 import com.ibm.watson.developer_cloud.speech_to_text.v1.model.SpeechResults;
 import com.ibm.watson.developer_cloud.speech_to_text.v1.websocket.BaseRecognizeCallback;
+import com.ibm.watson.developer_cloud.tone_analyzer.v3.ToneAnalyzer;
+import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneAnalysis;
+import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneOptions;
+
+import asr.proyectoFinal.dao.CloudantPalabraStore;
+import asr.proyectoFinal.dominio.Palabra;
 
 import java.io.ByteArrayOutputStream;
 import javax.servlet.ServletOutputStream;
@@ -44,9 +50,6 @@ public class toText extends HttpServlet {
     service.setUsernameAndPassword("420e2b65-c8d4-47b3-9d71-f1f5e3d0a12f", "KSJxK8YkVofE");
 
     Part filePart = request.getPart("audio"); // Retrieves <input type="file" name="file">
-    
-    
-    
     
     String appPath = request.getServletContext().getRealPath("");
 	 // constructs path of the directory to save uploaded file
@@ -68,8 +71,6 @@ public class toText extends HttpServlet {
 	 }
     
 	 String ext = savedFile.substring(savedFile.lastIndexOf(".")+1);    
-    
-    
     
     
     RecognizeOptions options = new RecognizeOptions.Builder()
@@ -97,17 +98,37 @@ public class toText extends HttpServlet {
     String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
     SpeechResults result = service.recognize(new File(savedFile), options).execute();
 	if(result.getResults().size()>0) {
-		 for (int i = 0; i <  result.getResults().size() ; i++)  {
+		 for (int i = 0; i < result.getResults().size() ; i++)  {
 		System.out.println(result.getResults().get(i).getAlternatives().get(0).getTranscript());
 		resultado = resultado.concat(result.getResults().get(i).getAlternatives().get(0).getTranscript());
 		}
 	}
 		
-	
+	String traduccion= Traductor.translate(resultado);
      //SpeechResults speechResults = service.recognize(dest, options).execute();
-	request.setAttribute("transcript", resultado);  
+	ToneAnalyzer serviceTone = new ToneAnalyzer("2017-09-21"); 
+	serviceTone.setUsernameAndPassword("b978973e-8848-4b24-b779-3e631482e9a2", "bRXpxg2hLJSW");
+	ToneOptions toneOptions = new ToneOptions.Builder().text(traduccion).build();
+	ToneAnalysis tone = serviceTone.tone(toneOptions).execute();
+	String tono = tone.getDocumentTone().getTones().get(0).getToneName().toString();
 	
-	request.getRequestDispatcher("index.jsp").forward(request, response);
+	Palabra palabra = new Palabra();
+	CloudantPalabraStore store = new CloudantPalabraStore();
+
+		if(store.getDB() == null) 
+		{
+		}
+		else
+		{
+			palabra.setName(traduccion);
+			store.persist(palabra);
+		}
+	
+	
+	request.setAttribute("original", resultado);	    		 
+	request.setAttribute("traducido", traduccion);  
+	request.setAttribute("tone", tono);
+	request.getRequestDispatcher("feedback.jsp").forward(request, response);
   }
   
   private String extractFileName(Part part) {

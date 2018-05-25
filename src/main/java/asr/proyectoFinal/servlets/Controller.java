@@ -47,7 +47,8 @@ public class Controller extends HttpServlet {
 				if(store.getDB() == null)
 					  out.println("No hay DB");
 				else
-					out.println("Palabras traducidas en la BD Cloudant:<br />" + store.getAll());
+					request.setAttribute("bdGuardado", store.getAll());
+				    request.getRequestDispatcher("listado.jsp").forward(request, response);
 				break;
 				
 			case "/insertar":
