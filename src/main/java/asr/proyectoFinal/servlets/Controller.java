@@ -21,11 +21,16 @@ import javax.servlet.http.HttpServletResponse;
 import asr.proyectoFinal.dao.CloudantPalabraStore;
 import asr.proyectoFinal.dominio.Palabra;
 import asr.proyectoFinal.services.Traductor;
+import com.ibm.watson.developer_cloud.tone_analyzer.v3.ToneAnalyzer;
+import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneAnalysis;
+import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneOptions;
+import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneScore;
+
 
 /**
  * Servlet implementation class Controller
  */
-@WebServlet(urlPatterns = {"/listar", "/insertar", "/hablar"})
+@WebServlet(urlPatterns = {"/listar", "/insertar", "/hablar","/tono"})
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -64,9 +69,42 @@ public class Controller extends HttpServlet {
 					{
 						palabra.setName(parametroTraducido);
 						store.persist(palabra);
-					    out.println(String.format("Traducida prueba la palabra %s. Resultado de la traducción guardado en BD: %s", parametro,palabra.getName()));			    	  
+					    out.println(String.format("Traducida la palabra %s. Resultado de la traducción guardado en BD: %s", parametro,palabra.getName()));			    	  
 					}
 				}
+				break;
+			case "/tono":
+				 
+			      ToneAnalyzer service = new ToneAnalyzer("2017-09-21"); 
+				  service.setUsernameAndPassword("b978973e-8848-4b24-b779-3e631482e9a2", "bRXpxg2hLJSW");
+//				  service.setEndPoint("https://gateway.watsonplatform.net/tone-analyzer/api");				  
+				  String tono = request.getParameter("palabra");
+				  ToneOptions toneOptions = new ToneOptions.Builder().text(tono).build();
+				  ToneAnalysis tone = service.tone(toneOptions).execute();
+				  
+				
+				      
+				     
+				   System.out.println(tone);
+				   request.setAttribute("transcript", tone);
+				   
+				   request.getRequestDispatcher("feedback.jsp").forward(request, response);
+				   
+				   
+//				  tono= "" ;
+//				  double scoreanterior=0;
+//			      for (ToneScore toneScore : tone.getDocumentTone().getTones().get(0).) {
+//			    	  if(toneScore.getScore()>scoreanterior)
+//			    	  {
+//			    		  scoreanterior=toneScore.getScore();
+//			              String t = toneScore.getToneName()+ "\n";
+//			              //toneString.append(t);
+//			              tono=t;
+//			    	  }
+//			    	  
+//			    	  out.println(String.format("Tono: %s", tono));			    	  
+//		}		
+			      	  
 				break;
 //			case "/traducir":
 //				//Palabra palabrab = new Palabra();

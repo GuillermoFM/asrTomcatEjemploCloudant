@@ -37,15 +37,15 @@ public class Speech extends HttpServlet {
   {
     TextToSpeech service = new TextToSpeech();
     service.setUsernameAndPassword("db7fafaf-e144-42e7-8cc9-3fc26187db37", "OthRXbJqXAIf");
+    
+   
 
-    //if(request.getParameter("language").equals("en")){
-
-    String path = this.getServletContext().getRealPath("/")+"/Translate.wav";
-    File yourFile = new File(path);
+  String path = this.getServletContext().getRealPath("/")+"/Translate.wav";
+   File yourFile = new File(path);
     yourFile.createNewFile(); // if file already exists will do nothing 
       try {
           String text = request.getParameter("palabra");
-          InputStream stream = service.synthesize(text, Voice.FR_RENEE,AudioFormat.WAV).execute();
+          InputStream stream = service.synthesize(text, Voice.ES_LAURA,AudioFormat.WAV).execute();
           InputStream in = WaveUtils.reWriteWaveHeader(stream);
           response.setContentType("audio/wav");
           response.setHeader("Content-Disposition", "attachment;filename=Translate.wav");
@@ -67,7 +67,7 @@ public class Speech extends HttpServlet {
         }
         catch (Exception e) {
           e.printStackTrace();
-        }
+       }
 //      }else if(request.getParameter("language").equals("fr")){
 //
 //          String path = this.getServletContext().getRealPath("/")+"/Traduction.wav";
