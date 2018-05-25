@@ -15,7 +15,7 @@
 <div id="cabecera">
 	<div class="col-sm-6 col-sm-offset-3" id="titulo" style="text-align:center; color:#FFF; font-size:30px; padding-top:20px;">
 			Guillarino's Dictionary
-	</div>
+	</div> 
 </div>
 
 <div id="cuerpo">
